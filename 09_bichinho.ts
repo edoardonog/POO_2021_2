@@ -141,3 +141,48 @@ class Pet {
     }
     }
 }
+
+//testes - consoles
+
+//iniciar
+let pet;
+pet = new Pet(20,10,15);
+console.log(pet+"");
+
+//play
+pet = new Pet(20,10,50);
+pet.play();
+console.log(pet + "");
+
+//comer
+pet.eat()
+console.log(pet + "");
+
+//dormir
+pet.sleep()
+console.log(pet + "");
+
+//banho
+pet.shower();
+console.log(pet + "");
+
+//morreuuuu
+pet.play();
+pet.play();
+pet.play();
+pet.play();
+console.log(pet + "");
+pet.play();
+
+//exemplo 2
+pet = new Pet(5,10,10);
+pet.play();
+pet.play();
+pet.play();
+pet.play();
+
+//exemplo3
+pet = new Pet (10, 3, 10);
+pet.play();
+pet.play();
+pet.play();
