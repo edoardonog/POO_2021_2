@@ -1,22 +1,18 @@
-abstract  class Vehicles {
-    private speed: number;
-    private honk: string;
-    private capacity: number;
+abstract class Vehicles {
+    protected maximum_speed: number;
+    protected honk: string;
+    protected capacity: number;
 
-    constructor(speed:number, honk: string, capacity:number){
-        this.speed= speed;
+    constructor(maximum_speed:number, honk: string, capacity:number){
+        this.maximum_speed= maximum_speed;
         this.honk= honk;
         this.capacity = capacity;
     }
 
-    abstract move(distance:number);
+    abstract move(distance:number): any;
 
-    getCapacity(){
-        return this.capacity;
-    }
-
-    public toString() {
-        return this.speed + ":" + this.honk + ":" + this.capacity + ":";        
+    public toString():string {
+        return this.maximum_speed + ":" + this.honk + ":" + this.capacity + ":";        
     }
 }
 
@@ -24,8 +20,8 @@ class Motorized extends Vehicles{
     private tank: number;
     private spent: number;
 
-    constructor(speed:number, honk: string, capacity:number,tank:number, spent:number){
-        super(speed, honk, capacity);
+    constructor(maximum_speed:number, honk: string, capacity:number, tank:number, spent:number){
+        super(maximum_speed, honk, capacity);
         this.tank = tank;
         this.spent = spent;
     }
@@ -40,21 +36,40 @@ class Motorized extends Vehicles{
 
     move(distance:number){
         if(this.hasFuel()){
-            let total_spent = this.getCapacity()*(distance * this.spent);
+            let total_spent = this.capacity*(distance * this.spent);
             
-            if(total_spent < this.tank){
+            if(total_spent <= this.tank){
                 this.tank -= total_spent;
             } else {
-                console.log("Não há gasolina o suficiente! Vá ao Posto Ipiranga!")!
+                console.log("Não há gasolina o suficiente! Vá ao Posto Ipiranga!")
             }
         }
     }
 }
 
-class Fusca {
+class Beetle extends Motorized {
     private id: string;
     private brand: string;
     private color: string;
+    private year: string
 
+    constructor(maximum_speed:number, honk: string, capacity:number, tank:number, spent:number, id:string, brand:string, color:string, year:string){
+        super(maximum_speed, honk, capacity, tank, spent);
+        this.id = id
+        this.brand = brand;
+        this.color = color
+        this.year = year
+    }
 
+    public toString(): string {
+        return `
+        AQUI ESTÁ O FUSQUINHA MAIS IRADO DA REGIÃO \n
+        - - - DÁ UMA OLHADA NA MÁQUINA - - - \n 
+        Marca: ${this.brand} Cor: ${this.color} Ano: ${this.year} Placa: ${this.id} Capacidade: ${this.capacity} Velocidade máxima: ${this.maximum_speed} \n
+        A BUZINHA DO MONSTRO: ${this.honk}`
+    }
 }
+
+let fusca: Beetle = new Beetle(120, "biiiiiiiii", 4, 100, 0.5, "YUR - 2002", "Volkswagem", "Preto", "1996")
+fusca.move(200)
+console.log(fusca)
