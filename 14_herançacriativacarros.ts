@@ -70,6 +70,6 @@ class Beetle extends Motorized {
     }
 }
 
-let fusca: Beetle = new Beetle(120, "biiiiiiiii", 4, 100, 0.5, "YUR - 2002", "Volkswagem", "Preto", "1996")
+let fusca: Beetle = new Beetle(120, "biiiiiiiii", 4, 100, 0.5, "EDO - 3003", "Volkswagem", "Preto", "1996")
 fusca.move(200)
 console.log(fusca)
