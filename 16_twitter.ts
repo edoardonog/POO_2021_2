@@ -135,7 +135,8 @@ class Tweet {
     }
 
     setRT(tw:Tweet){
-        this.rt = tw
+        this.rt = tw 
+        // n consegui entender o bug
     }
 
     toString(): string {
@@ -177,6 +178,10 @@ class Inbox {
         }else{
             throw new Error("Tweet não existe")
         }
+    }
+
+    rmMSGfrom(){
+        //nn consegui esse
     }
 
     toString(): string {        
