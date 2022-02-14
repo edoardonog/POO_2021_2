@@ -140,12 +140,7 @@ class Tweet {
     }
 
     toString(): string {
-        let tweet: string = `${this.id}:${this.username} -> (${this.msg}) [${this.getLikes().join(", ")}]`
-
-        if(this.rt != null){
-            tweet += `\n    ${this.rt}`
-        }
-
+        let tweet: string = `${this.id}:${this.username} -> (${this.msg})`
         return tweet
     }
 }
